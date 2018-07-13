@@ -11,3 +11,7 @@ Message Routes:
   - POST "/api/msg/" - Create message with data ({ senderId: "", receiverId: "", body: "" })
   - PUT "/api/msg/" - Update message by id ({ id: "", body: "" })
   - DELETE "/api/msg/<id>" - Delete message by id
+
+Examples:
+  "http://127.0.0.1:8080/api/user?connectedWithId=5b48bb2f2e882f263c240141"
+  "http://127.0.0.1:8080/api/user/5b48bb2f2e882f263c240141"
