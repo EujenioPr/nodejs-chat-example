@@ -1,4 +1,4 @@
-# Chat Example
+# chat nodejs example
 User Routes:
   - GET "/api/user?connectedWithId=<id>" - All connected users ever with exact user by id
   - GET "/api/user/<id>" - User by id
