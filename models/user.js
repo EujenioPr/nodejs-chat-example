@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
     name: String,
     email: String,
-    connectedEver: []
+    connectedEverIds: {
+        type: Array
+    },
+    messagesIds: Array
 });
 
 const User = mongoose.model('User', userSchema);

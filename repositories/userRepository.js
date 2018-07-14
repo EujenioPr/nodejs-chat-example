@@ -11,19 +11,33 @@ class UserRepository extends Repository {
     }
     insertUser(user, cb) {
         if(user && user.name && user.email) {
-            User.create({name: user.name, email: user.email }, cb);
+            User.create({name: user.name, email: user.email }, (err, data) => {
+                console.log(err, data);
+                cb(err, data);
+            });
         }
+    }
+    updateUserArray(user, cb) {
+        User.update(
+          { _id: user.id },
+          { $addToSet: user.push }, cb);
     }
     async findConnectedUsers(id, cb) {
         if(id && id.length > 0) {
-            let ids = [];
-            await User.find({ _id: id }, { connectedEver: 1 }, (err, data) => {
-                ids = data[0].connectedEver;
+
+            let connected = [];
+
+            await User.find({ _id: id }, { connectedEverIds: 1 }, (err, data) => {
+                if(err) { cb(err, data) }
+                connected = data[0].connectedEverIds;
             });
+
             let ids_ = [];
-            for(let id_ of ids) {
-                ids_.push(mongoose.Types.ObjectId(id_));
+
+            for(let connection of connected) {
+                ids_.push(mongoose.Types.ObjectId(connection));
             }
+            
             User.find({
                 '_id': { $in: ids_ }
             }, cb);
