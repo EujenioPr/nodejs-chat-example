@@ -17,5 +17,5 @@ Message Routes:
 ```
 
 > Examples:
-  - http://127.0.0.1:8080/api/user?connectedWithId=5b48bb2f2e882f263c240141
-  - http://127.0.0.1:8080/api/user/5b48bb2f2e882f263c240141
+  - http://127.0.0.1:8080/api/user?connectedWithId=5b4a2e0ebd69941ddcd57c26
+  - http://127.0.0.1:8080/api/user/5b4a2e0ebd69941ddcd57c26
